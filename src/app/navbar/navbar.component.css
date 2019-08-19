@@ -1,0 +1,25 @@
+.navbar {
+  height: 80px;
+  width: 100%;
+  position: fixed !important;
+  z-index: 100;
+}
+.navbar-brand {
+  font-size: 28px;
+  padding:0;
+  border-bottom: solid 3px floralwhite;
+}
+.navbar-brand:hover {
+  border-width: 0px;
+}
+.nav-link{
+  font-size: 30px;
+  font-weight: 600;
+  padding: 0px;
+  margin-right: 50px;
+  border-bottom: #0056b3 3px solid;
+}
+.nav-link:hover {
+  border-width:0;
+  margin-bottom: 0;
+}

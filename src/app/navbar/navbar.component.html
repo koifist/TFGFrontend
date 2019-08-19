@@ -1,0 +1,10 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand justify-content-center" routerLink="/home"><fa-icon [icon]="faHome"></fa-icon></a>
+  <form class="form-inline">
+  <ul class="nav justify-content-right" *ngIf="!this.user">
+    <li><a class="nav-link" href="#" routerLink="/login">Iniciar Sesion</a></li>
+  </ul>
+    <ul class="nav justify-content-right" *ngIf="this.user">
+    </ul>
+  </form>
+</nav>

@@ -1,0 +1,26 @@
+#image{
+  position: relative;
+  padding:10px 20px 10px 20px;
+}
+#title {
+  position: absolute;
+  font-size: 75px;
+  top: 30%;
+  background-color: #ffffff;
+}
+#register{
+  position: absolute;
+  color: white;
+  font-size: 59px;
+  top: 50%;
+  left: 36%;
+  background-color: black;
+  border-color: #2a2a2a;
+  border-style: solid;
+  border-radius: 91px;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+#register:hover{
+  background-color: #474747;
+}
