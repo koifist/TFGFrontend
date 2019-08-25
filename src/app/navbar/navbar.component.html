@@ -1,18 +1,19 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
   <ul class="nav navbar-center">
-    <li><a class="nav-item zone" [routerLink]="['/login']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
-    <li><a class="nav-item zone" [routerLink]="['/login']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/adminZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/brokerZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/rtsaZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>BROKER ZONE</span></a></li>
   </ul>
   <form class="form-inline">
   <ul class="nav">
     <li><a class="nav-item" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!this.user">Registrarse</a></li>
     <li><a class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.user">Iniciar Sesion</a></li>
     <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
-      <li><a class="nav-item" href="#" [routerLink]="['/profile']" ngbDropdownToggle routerLinkActive="active" ><fa-icon [icon]="faUser"></fa-icon></a></li>
+      <li><a class="nav-item" href="#" ngbDropdownToggle routerLinkActive="active" ><fa-icon [icon]="faUser"></fa-icon></a></li>
       <div ngbDropdownMenu class="drop">
-        <button ngbDropdownItem>Mi cuenta</button>
-        <button ngbDropdownItem (click)="logOut()">Cerrar sesion</button>
+        <button ngbDropdownItem [routerLink]="['/profile']" >Mi cuenta</button>
+        <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']" >Cerrar sesion</button>
       </div>
     </div>
   </ul>

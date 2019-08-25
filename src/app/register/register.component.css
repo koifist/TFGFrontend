@@ -1,0 +1,16 @@
+#register{
+  margin: 120px auto 138px auto;
+  text-align: center;
+  overflow: hidden;
+
+}
+.register-container{
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  width: 20%;
+  border-style: inset ;
+}
+#registerForm{
+  margin: 40px 0;
+}
