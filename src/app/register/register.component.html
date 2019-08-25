@@ -3,8 +3,8 @@
     <h2>Regístrate</h2>
     <hr class="black_hr text-center">
     <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="register()" >
-      <input type="text" class="row input-text"  formControlName="username"  placeholder="Email">
-      <input type="password" class="row input-text"  formControlName="password1"  placeholder="Contraseña" [(ngModel)]="password1">
+      <input type="text" class="row input-text"  formControlName="username"  placeholder=" Email">
+      <input type="password" class="row input-text"  formControlName="password1"  placeholder=" Contraseña" [(ngModel)]="password1">
       <input type="password" class="row input-text"  formControlName="password2"  placeholder=" Repite Contraseña" [(ngModel)]="password2">
       <div class="back-next">
         <input type="submit" class="r-button" value="Regístrate" [disabled]="(password1 !== password2) || !password1">

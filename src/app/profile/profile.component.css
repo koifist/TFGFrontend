@@ -1,0 +1,16 @@
+#profile{
+  margin: 140px auto 168px auto;
+  text-align: center;
+  overflow: hidden;
+
+}
+.profile-container{
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  width: 20%;
+  border-style: inset ;
+}
+#profileForm{
+  margin: 40px 0;
+}

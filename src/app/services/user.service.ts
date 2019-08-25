@@ -33,6 +33,17 @@ export class UserService {
         }
       });
   }
+  updatePass(password: string): any {
+    return this.http.post(environment.backendpoints.updatePass,
+      {
+        password
+      }, {
+        headers: {
+          'cache-control': 'no-cache',
+          'Content-Type': 'application/json'
+        }
+      });
+  }
   logOut(): any {
       localStorage.removeItem('currentUser');
       localStorage.removeItem('token');

@@ -7,7 +7,8 @@ export const environment = {
   production: false,
   backendpoints: {
     login: BASE_URL + '/createSession',
-    register: BASE_URL + '/createUser'
+    register: BASE_URL + '/createUser',
+    updatePass: BASE_URL + '/updatePass'
   }
 };
 
