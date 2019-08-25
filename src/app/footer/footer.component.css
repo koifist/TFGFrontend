@@ -1,0 +1,16 @@
+#footer{
+  background-image: url('../../assets/media/footer.jpg');
+  text-align: center;
+  justify-content: center;
+  width:100%;
+  overflow: hidden;
+}
+.text{
+  padding:40px;
+  font-size: 30px;
+  color: #DDDDDD;
+}
+.highlighted{
+  color: #0b00ff;
+  font-size: 70px;
+}

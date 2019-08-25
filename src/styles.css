@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:900i&display=swap');
 body{
-  font-family: -webkit-pictograph;
+  font-family: "Lato", sans-serif;
+}
+.black_hr {
+  border: solid 1px #000;
+  width: 80px;
+  height: 1px;
+  background-color: #000;
+
+}
+.input-text{
+  width: 250px;
+  margin:auto auto 20px;
+}
+.r-button {
+  margin-top: 20px;
+  width: 120px!important;
+  user-select: none;
+  color: white;
+  border-color: #F4511E;
+  background: linear-gradient(to bottom, #FF8A65 0%, #FF7043 100%);
+  box-shadow: inset 0 1px #FFCCBC, 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+}
+.r-button{
+  width: 70px;
+}
+.r-button:disabled{
+  background: linear-gradient(to bottom, #615d5c 0%, #615d5c 100%);
+  border-color: #615d5c;
+  box-shadow: inset 0 1px #615d5c, 0 1px 2px rgba(0, 0, 0, 0.2);
 }

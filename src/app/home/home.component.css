@@ -1,26 +1,58 @@
-#image{
+#home{
+  margin: 40px;
   position: relative;
-  padding:10px 20px 10px 20px;
+  padding: 10px 20px 10px 20px;
+  width: auto;
+  overflow: hidden;
+}
+.text {
+  padding: 50px 30px;
+  background-image: url('../../assets/media/background.png');
+  font-size: 30px;
+  border-style: inset;
+  text-align: center;
+  margin: 0 30px;
+  font-weight: normal;
+  letter-spacing: .2em;
+  line-height: 1.1em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.col{
+  height:476px;
+}
+.wait {
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 60px;
+  transform: skewY(-10deg);
+  letter-spacing: 4px;
+  word-spacing: -8px;
+  color: black;
+  text-shadow:
+    -1px -1px 0 ,
+    -2px -2px 0 rgba(39,39,39,0.82),
+    -3px -3px 0 rgba(39,39,39,0.82),
+    -4px -4px 0 rgba(39,39,39,0.82),
+    -30px 20px 40px black;
+}
+.video {
+  width: 50%;
+  padding: 0 30px;
+}
+.highlighted{
+  font-weight: 600;
+  font-size: 60px;
+  line-height : 40px;
 }
 #title {
-  position: absolute;
-  font-size: 75px;
-  top: 30%;
-  background-color: #ffffff;
-}
-#register{
-  position: absolute;
-  color: white;
-  font-size: 59px;
-  top: 50%;
-  left: 36%;
-  background-color: black;
-  border-color: #2a2a2a;
-  border-style: solid;
-  border-radius: 91px;
-  padding: 0px 20px;
-  cursor: pointer;
-}
-#register:hover{
-  background-color: #474747;
+  font-family: 'Dancing Script', cursive;
+  justify-content: center;
+  font-size: 100px;
+  font-weight: bold;
+  background: #202020;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 3px 3px rgba(255,255,255,0.4),0 -1px 1px rgba(0,0,0,0.3);
+  margin-bottom: 40px;
 }

@@ -1,7 +1,13 @@
-<div id="image">
-<img src="./assets/media/home.jpg" alt="image" style="width:100%;position:relative">
-  <div id="title">
+<div id="home">
+  <div id="title" class="row">
     {{ title }}
   </div>
-  <div id="register" routerLink="/register"> Unirse a la plataforma </div>
+  <div id="video1" class="row" style="margin-bottom: 60px">
+    <video autoplay muted [muted]="true" loop class="col video">
+      <source src="assets/media/video2.mp4#t=2" type="video/mp4">
+    </video>
+    <div class="col text">
+      <span class="highlighted">Análisis <br>en tiempo real</span><br><br><span>Contamos con el mejor equipo de Brokers que te guiarán para invertir correctamente su dinero</span><br><br><br><span class="wait">¡No espere más!</span>
+    </div>
+  </div>
 </div>

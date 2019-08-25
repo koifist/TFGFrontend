@@ -1,10 +1,20 @@
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand justify-content-center" routerLink="/home"><fa-icon [icon]="faHome"></fa-icon></a>
-  <form class="form-inline">
-  <ul class="nav justify-content-right" *ngIf="!this.user">
-    <li><a class="nav-link" href="#" routerLink="/login">Iniciar Sesion</a></li>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
+  <ul class="nav navbar-center">
+    <li><a class="nav-item zone" [routerLink]="['/login']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/login']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
   </ul>
-    <ul class="nav justify-content-right" *ngIf="this.user">
-    </ul>
+  <form class="form-inline">
+  <ul class="nav">
+    <li><a class="nav-item" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!this.user">Registrarse</a></li>
+    <li><a class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.user">Iniciar Sesion</a></li>
+    <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
+      <li><a class="nav-item" href="#" [routerLink]="['/profile']" ngbDropdownToggle routerLinkActive="active" ><fa-icon [icon]="faUser"></fa-icon></a></li>
+      <div ngbDropdownMenu class="drop">
+        <button ngbDropdownItem>Mi cuenta</button>
+        <button ngbDropdownItem (click)="logOut()">Cerrar sesion</button>
+      </div>
+    </div>
+  </ul>
   </form>
 </nav>
