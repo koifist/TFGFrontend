@@ -18,6 +18,11 @@ import {RouterModule} from '@angular/router';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { ProfileComponent } from './profile/profile.component';
+import { PublicComponent } from './public/public.component';
+import { BrokerComponent } from './broker/broker.component';
+import { AdminComponent } from './admin/admin.component';
+import {ChartsModule} from 'ng2-charts';
+import {moment} from 'ngx-bootstrap/chronos/test/chain';
 
 
 @NgModule({
@@ -28,7 +33,10 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PublicComponent,
+    BrokerComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,9 @@ import { ProfileComponent } from './profile/profile.component';
       preventDuplicates: true,
       timeOut: 8000
     }),
-    RouterModule
+    RouterModule,
+    ChartsModule,
+
   ],
   providers: [
     {

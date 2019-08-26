@@ -1,0 +1,23 @@
+#public{
+  text-align: center;
+  margin-bottom: 3000px;
+}
+.canvas{
+  display: block;
+  width: 585px!important;
+  height: 400px!important;
+}
+.block{
+  width: 970px!important;
+  height: 485px!important;
+}
+.flex{
+  position:relative!important;
+}
+.zone{
+  margin-right: 50%;
+}
+.public-container{
+
+  color: #000000
+}

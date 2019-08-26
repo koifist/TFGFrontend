@@ -1,9 +1,9 @@
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
   <ul class="nav navbar-center">
-    <li><a class="nav-item zone" [routerLink]="['/adminZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
-    <li><a class="nav-item zone" [routerLink]="['/brokerZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
-    <li><a class="nav-item zone" [routerLink]="['/rtsaZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>BROKER ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
+    <li><a class="nav-item zone" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></li>
   </ul>
   <form class="form-inline">
   <ul class="nav">

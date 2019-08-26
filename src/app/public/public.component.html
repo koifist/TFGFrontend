@@ -1,0 +1,59 @@
+<div id="public">
+  <h2>RTSA ZONE</h2>
+  <hr class="black_hr text-center">
+  <div class="public-container">
+    <div class="flex">
+      <div class="flex-item">
+        <div class="block">
+          <h2 class="zone">Amazon <label style="width:150px">{{amazon}}</label></h2>
+          <div class="flex">
+            <div class="flex-item">
+                <canvas baseChart
+                  [datasets]="amazonData"
+                  [labels]="amazonLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [chartType]="lineChartType"
+                  [plugins]="lineChartPlugins"
+                  [legend]="false" class="canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <h2 class="zone">Google <label style="width:150px">{{google}}</label></h2>
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+            <canvas baseChart
+            [datasets]="googleData"
+            [labels]="googleLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+            [legend]="false" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="block">
+      <h2 class="zone">Apple <label style="width:150px">{{apple}}</label></h2>
+      <div class="flex">
+        <div class="flex-item">
+          <div style="display: block;">
+    <canvas baseChart
+            [datasets]="appleData"
+            [labels]="appleLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins"
+            [legend]="false" class="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

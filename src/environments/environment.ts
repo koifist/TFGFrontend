@@ -9,7 +9,8 @@ export const environment = {
     login: BASE_URL + '/createSession',
     register: BASE_URL + '/createUser',
     updatePass: BASE_URL + '/updatePass'
-  }
+  },
+  baseurl: 'http://localhost:3000'
 };
 
 /*
