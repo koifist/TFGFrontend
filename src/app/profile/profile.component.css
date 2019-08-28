@@ -1,7 +1,8 @@
 #profile{
-  margin: 140px auto 168px auto;
+  margin: 95px auto 100px auto;
   text-align: center;
   overflow: hidden;
+  height: 452px;
 
 }
 .profile-container{
@@ -10,6 +11,10 @@
   text-align: center;
   width: 20%;
   border-style: inset ;
+  -webkit-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  -moz-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+
 }
 #profileForm{
   margin: 40px 0;

@@ -31,3 +31,35 @@ body{
   border-color: #615d5c;
   box-shadow: inset 0 1px #615d5c, 0 1px 2px rgba(0, 0, 0, 0.2);
 }
+.canvas{
+  display: block;
+  width: 585px!important;
+  height: 400px!important;
+}
+.block{
+  width: 970px!important;
+  height: 485px!important;
+}
+.flex{
+  position:relative!important;
+}
+.zone{
+  margin-right: 50%;
+  margin-bottom: 10px;
+}
+.textArea{
+  overflow-y: auto;
+  word-wrap: break-word;
+  text-align: left;
+  height: 1340px;
+  color: rgba(0,79,186,0.95);
+  padding: 20px;
+  border-style: outset;
+  -webkit-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  -moz-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+}
+.public-container{
+
+  color: #000000
+}

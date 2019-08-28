@@ -1,11 +1,11 @@
 <div id="public">
-  <h2>RTSA ZONE</h2>
-  <hr class="black_hr text-center">
-  <div class="public-container">
+  <div class="public-container" style="margin:30px">
+    <div class="row">
+    <div class="col-5" style="margin-left: 20px">
     <div class="flex">
       <div class="flex-item">
         <div class="block">
-          <h2 class="zone">Amazon <label style="width:150px">{{amazon}}</label></h2>
+          <h2 class="zone">Amazon <label style="width:150px">{{amazon}}</label>USD</h2>
           <div class="flex">
             <div class="flex-item">
                 <canvas baseChart
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="block">
-      <h2 class="zone">Google <label style="width:150px">{{google}}</label></h2>
+      <h2 class="zone">Google <label style="width:150px">{{google}}</label>USD</h2>
       <div class="flex">
         <div class="flex-item">
           <div style="display: block;">
@@ -33,13 +33,13 @@
             [colors]="lineChartColors"
             [chartType]="lineChartType"
             [plugins]="lineChartPlugins"
-            [legend]="false" class="canvas"></canvas>
+            [legend]="false" class="canvas" Theme="'dark-theme"></canvas>
           </div>
         </div>
       </div>
     </div>
     <div class="block">
-      <h2 class="zone">Apple <label style="width:150px">{{apple}}</label></h2>
+      <h2 class="zone">Apple <label style="width:150px">{{apple}}</label>USD</h2>
       <div class="flex">
         <div class="flex-item">
           <div style="display: block;">
@@ -52,6 +52,16 @@
             [plugins]="lineChartPlugins"
             [legend]="false" class="canvas"></canvas>
           </div>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div class="col-6">
+        <div class="textArea">
+          <div *ngFor="let msg of messages">
+            <span style="color:rgba(0,79,186,0.95);padding-right:20px">[{{msg['date']}}]</span> <span style="color:black">{{msg['username']}}<br> {{msg['msg']}}</span>
+            <br><br>
+            </div>
         </div>
       </div>
     </div>

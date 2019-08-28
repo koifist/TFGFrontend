@@ -29,8 +29,8 @@ export class RegisterComponent implements OnInit {
         .pipe(first())
         .subscribe(
           res => {
-            localStorage.setItem('token', res.token);
-            localStorage.setItem('currentUser', JSON.stringify(res.currentUser));
+            sessionStorage.setItem('token', res.token);
+            sessionStorage.setItem('currentUser', JSON.stringify(res.currentUser));
             this.router.navigateByUrl('/home');
           },
           err => {

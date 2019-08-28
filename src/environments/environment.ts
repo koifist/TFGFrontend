@@ -8,7 +8,11 @@ export const environment = {
   backendpoints: {
     login: BASE_URL + '/createSession',
     register: BASE_URL + '/createUser',
-    updatePass: BASE_URL + '/updatePass'
+    updatePass: BASE_URL + '/updatePass',
+    getMessages: BASE_URL + '/getMessages',
+    sendMessage: BASE_URL + '/sendMessage',
+    upgradeBroker: BASE_URL + '/createBroker'
+
   },
   baseurl: 'http://localhost:3000'
 };

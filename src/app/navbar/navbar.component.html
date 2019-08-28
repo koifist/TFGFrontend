@@ -10,10 +10,10 @@
     <li><a class="nav-item" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!this.user">Registrarse</a></li>
     <li><a class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.user">Iniciar Sesion</a></li>
     <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
-      <li><a class="nav-item" href="#" ngbDropdownToggle routerLinkActive="active" ><fa-icon [icon]="faUser"></fa-icon></a></li>
+      <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer"><fa-icon [icon]="faUser" ></fa-icon></a></li>
       <div ngbDropdownMenu class="drop">
-        <button ngbDropdownItem [routerLink]="['/profile']" >Mi cuenta</button>
-        <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']" >Cerrar sesion</button>
+        <button ngbDropdownItem [routerLink]="['/profile']"  routerLinkActive="active" >Mi cuenta</button>
+        <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']"  routerLinkActive="active" >Cerrar sesion</button>
       </div>
     </div>
   </ul>

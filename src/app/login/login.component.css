@@ -1,5 +1,5 @@
 #login{
-  margin: 145px auto 124px auto;
+  margin: 120px auto 114px auto;
   text-align: center;
   overflow: hidden;
 
@@ -10,6 +10,9 @@
   text-align: center;
   width: 20%;
   border-style: inset ;
+  -webkit-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  -moz-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
+  box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
 }
 #loginForm{
   margin: 40px 0;
