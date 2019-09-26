@@ -1,65 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body{
-  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif !important;
 }
 .black_hr {
   border: solid 1px #000;
   width: 80px;
   height: 1px;
   background-color: #000;
-
-}
-.input-text{
-  width: 250px;
-  margin:auto auto 20px;
-}
-.r-button {
-  margin-top: 20px;
-  width: 120px!important;
-  user-select: none;
-  color: white;
-  border-color: #F4511E;
-  background: linear-gradient(to bottom, #FF8A65 0%, #FF7043 100%);
-  box-shadow: inset 0 1px #FFCCBC, 0 1px 2px rgba(0, 0, 0, 0.2);
-  font-size: 20px;
-}
-.r-button{
-  width: 70px;
-}
-.r-button:disabled{
-  background: linear-gradient(to bottom, #615d5c 0%, #615d5c 100%);
-  border-color: #615d5c;
-  box-shadow: inset 0 1px #615d5c, 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.canvas{
-  display: block;
-  width: 585px!important;
-  height: 400px!important;
-}
-.block{
-  width: 970px!important;
-  height: 485px!important;
-}
-.flex{
-  position:relative!important;
-}
-.zone{
-  margin-right: 50%;
-  margin-bottom: 10px;
-}
-.textArea{
-  overflow-y: auto;
-  word-wrap: break-word;
-  text-align: left;
-  height: 1340px;
-  color: rgba(0,79,186,0.95);
-  padding: 20px;
-  border-style: outset;
-  -webkit-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-  -moz-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-  box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-}
-.public-container{
-
-  color: #000000
 }

@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://api.realtimestockanalysis.com';
 export const environment = {
   production: false,
   backendpoints: {
@@ -14,7 +14,7 @@ export const environment = {
     upgradeBroker: BASE_URL + '/createBroker'
 
   },
-  baseurl: 'http://localhost:3000'
+  baseurl: 'https://api.realtimestockanalysis.com'
 };
 
 /*

@@ -1,16 +1,16 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
   <ul class="nav navbar-center">
-    <li><a class="nav-item zone" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
-    <li><a class="nav-item zone" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
-    <li><a class="nav-item zone" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></li>
+    <li><a class="nav-item" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
+    <li><a class="nav-item" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
+    <li><a class="nav-item" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></li>
   </ul>
   <form class="form-inline">
   <ul class="nav">
     <li><a class="nav-item" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!this.user">Registrarse</a></li>
     <li><a class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.user">Iniciar Sesion</a></li>
     <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
-      <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer"><fa-icon [icon]="faUser" ></fa-icon></a></li>
+      <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer;color: white"><fa-icon [icon]="faUser" ></fa-icon></a></li>
       <div ngbDropdownMenu class="drop">
         <button ngbDropdownItem [routerLink]="['/profile']"  routerLinkActive="active" >Mi cuenta</button>
         <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']"  routerLinkActive="active" >Cerrar sesion</button>
