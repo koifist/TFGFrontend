@@ -4,32 +4,70 @@
 }
 #title{
   color: white;
-  margin-top: 19%;
+  margin-top: 17%;
   margin-left: 2%;
-  width: 50%;
   font-weight: 600;
 }
-@media (max-width: 999px) {
+#joinus{
+  text-align: center;
+}
+.joinButton{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.joinButton:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.joinButton:before,.joinButton:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.joinButton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.joinButton:hover:before,.joinButton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+@media (max-width: 799px) {
   #title{
-    font-size: 10px;
+    font-size: 30px;
   }
 }
-@media (min-width: 1000px) and (max-width: 1299px) {
+@media (min-width: 800px) and (max-width: 1149px) {
   #title{
-    font-size: 20px;
+    font-size: 40px;
   }
 }
-@media (min-width: 1300px) and (max-width: 1599px) {
-  #title{
-    font-size: 35px;
-  }
-}
-@media (min-width: 1600px) and (max-width: 1799px) {
+@media (min-width: 1150px) and (max-width: 1354px) {
   #title{
     font-size: 55px;
   }
 }
-@media (min-width: 1800px) {
+@media (min-width: 1355px) and (max-width: 1599px) {
+  #title{
+    font-size: 65px;
+  }
+}
+@media (min-width: 1600px) {
   #title{
     font-size: 75px;
   }
