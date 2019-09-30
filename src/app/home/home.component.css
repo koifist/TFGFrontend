@@ -1,5 +1,25 @@
-#slider{
-  width: 40%;
+#slider1{
+  margin: 6rem auto;
+  padding: 0 1rem;
+}
+#slider2{
+  padding: 0 1rem;
+}
+#description{
+  padding: 0 1rem;
+  text-align: center;
+}
+#txt{
+  padding: 0 1rem;
+  border-left: solid;
+  border-right: solid;
+  border-width: 1px;
+}
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  filter: invert(100%);
+}
+.cita{
+  width: 80%;
   margin: 0 auto;
 }
 #title{
@@ -12,7 +32,7 @@
   text-align: center;
 }
 .joinButton{
-  background:#1AAB8A;
+  background: #4c4c4e;
   color:#fff;
   border:none;
   position:relative;
@@ -25,7 +45,7 @@
 }
 .joinButton:hover{
   background:#fff;
-  color:#1AAB8A;
+  color:#4c4c4e;
 }
 .joinButton:before,.joinButton:after{
   content:'';
@@ -34,7 +54,7 @@
   right:0;
   height:2px;
   width:0;
-  background: #1AAB8A;
+  background: #4c4c4e;
   transition:400ms ease all;
 }
 .joinButton:after{
@@ -51,25 +71,40 @@
   #title{
     font-size: 30px;
   }
+  #description{
+    font-size: 15px;
+  }
 }
 @media (min-width: 800px) and (max-width: 1149px) {
   #title{
     font-size: 40px;
+  }
+  #description{
+    font-size: 20px;
   }
 }
 @media (min-width: 1150px) and (max-width: 1354px) {
   #title{
     font-size: 55px;
   }
+  #description{
+    font-size: 25px;
+  }
 }
 @media (min-width: 1355px) and (max-width: 1599px) {
   #title{
     font-size: 65px;
   }
+  #description{
+    font-size: 30px;
+  }
 }
 @media (min-width: 1600px) {
   #title{
     font-size: 75px;
+  }
+  #description{
+    font-size: 33px;
   }
 }
 
