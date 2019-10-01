@@ -1,11 +1,11 @@
 .navbar {
-  height: 80px;
+  height: 65px;
   width: 100%;
   position: fixed !important;
   z-index: 100;
 }
 img.image{
-  height: 60px;
+  height: 40px;
 }
 .navbar {
   padding-top: 2px;
@@ -14,10 +14,10 @@ img.image{
   border-width: 0px;
 }
 .nav-item{
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   padding: 0px;
-  margin-right: 50px;
+  margin-right: 30px;
   color: white;
 }
 .drop{

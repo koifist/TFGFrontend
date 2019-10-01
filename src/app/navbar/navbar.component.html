@@ -7,7 +7,6 @@
   </ul>
   <form class="form-inline">
   <ul class="nav">
-    <li><a class="nav-item" [routerLink]="['/register']" routerLinkActive="active" *ngIf="!this.user">Registrarse</a></li>
     <li><a class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!this.user">Iniciar Sesion</a></li>
     <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
       <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer;color: white"><fa-icon [icon]="faUser" ></fa-icon></a></li>

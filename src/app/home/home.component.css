@@ -3,14 +3,13 @@
   padding: 0 1rem;
 }
 #slider2{
-  padding: 0 1rem;
+  margin: 0 0 2rem 0 !important;
 }
 #description{
-  padding: 0 1rem;
   text-align: center;
+  margin: 0 0 2rem 0 !important;
 }
 #txt{
-  padding: 0 1rem;
   border-left: solid;
   border-right: solid;
   border-width: 1px;
@@ -37,8 +36,8 @@
   border:none;
   position:relative;
   height:60px;
-  font-size:1.6em;
-  padding:0 2em;
+  font-size:2em;
+  padding:0 1em;
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
@@ -72,7 +71,7 @@
     font-size: 30px;
   }
   #description{
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 @media (min-width: 800px) and (max-width: 1149px) {
@@ -88,7 +87,7 @@
     font-size: 55px;
   }
   #description{
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 @media (min-width: 1355px) and (max-width: 1599px) {
@@ -96,7 +95,7 @@
     font-size: 65px;
   }
   #description{
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 @media (min-width: 1600px) {
@@ -104,7 +103,7 @@
     font-size: 75px;
   }
   #description{
-    font-size: 33px;
+    font-size: 25px;
   }
 }
 

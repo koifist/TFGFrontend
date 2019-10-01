@@ -1,4 +1,5 @@
 #router{
-  padding-top: 80px;
+  padding-top: 60px;
+  max-width: 1950px;
+  margin:0 auto;
 }
-
