@@ -1,16 +1,40 @@
 #footer{
   background-image: url('../../assets/media/footer.jpg');
   text-align: center;
-  justify-content: center;
-  width:100%;
-  overflow: hidden;
+  color: white !important;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
-.text{
-  padding:40px;
-  font-size: 30px;
-  color: #DDDDDD;
+.fa-github, .fa-instagram, .fa-facebook, .fa-linkedin{
+  color: white !important;
 }
-.highlighted{
-  color: #0b00ff;
-  font-size: 70px;
+@media (max-width: 799px) {
+  #footer{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 }
+@media (min-width: 800px) and (max-width: 1149px) {
+  #footer{
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+@media (min-width: 1150px) and (max-width: 1354px) {
+  #footer{
+    font-size: 20px;
+  }
+}
+@media (min-width: 1355px) and (max-width: 1599px) {
+  #footer{
+    font-size: 25px;
+  }
+}
+@media (min-width: 1600px) {
+  #footer{
+    font-size: 25px;
+  }
+}
+
