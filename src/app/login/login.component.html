@@ -1,14 +1,22 @@
-<div id="login">
-  <div class="login-container">
-    <h2>Inicia sesión</h2>
-    <hr class="black_hr text-center">
-    <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="login()" >
-      <input type="text" class="row input-text"  formControlName="username"  placeholder=" Email">
-      <input type="password" class="row input-text"  formControlName="password"  placeholder=" Contraseña">
-      <div class="back-next">
-        <input type="submit" class="r-button" value="Entrar">
-      </div>
-    </form>
+<div id="login" class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Inicia sesión</h2>
+      <hr class="black_hr text-center">
+    </div>
   </div>
-  <div id="sign-up" style="padding-top: 50px">¿No tienes cuenta? <a routerLink="/register" class="underline">Regístrate</a></div>
+  <div class="row">
+    <div class="col-12">
+      <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="login()" >
+        <input type="text" class="row input-text"  formControlName="username"  placeholder=" Email">
+        <input type="password" class="row input-text"  formControlName="password"  placeholder=" Contraseña">
+        <div class="back-next">
+          <input type="submit" class="r-button" value="Entrar">
+        </div>
+      </form>
+    </div>
+    <div class="col-12">
+        <div id="sign-up" style="padding-top: 50px">¿No tienes cuenta? <a routerLink="/register" class="underline">Regístrate</a></div>
+    </div>
+  </div>
 </div>
