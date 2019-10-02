@@ -11,6 +11,7 @@ import * as moment from 'moment';
 export class NavbarComponent implements OnInit , DoCheck {
   faUser = faUser;
   public user: any;
+  public options = false;
   constructor(private userService: UserService) { }
 
   ngDoCheck(): void {
@@ -25,5 +26,8 @@ export class NavbarComponent implements OnInit , DoCheck {
   }
   logOut(): void {
     this.userService.logOut();
+  }
+  activeOptions() {
+    this.options = !this.options;
   }
 }

@@ -1,8 +1,5 @@
 .navbar {
   height: 65px;
-  width: 100%;
-  position: fixed !important;
-  z-index: 100;
 }
 img.image{
   height: 40px;
@@ -23,4 +20,38 @@ img.image{
 .drop{
   font-weight: 600 !important;
   font-size: x-large !important;
+}
+#nav1 {
+  position: fixed !important;
+  z-index: 100;
+  width: 100%;
+}
+#nav2 {
+  position: fixed !important;
+  z-index: 100;
+  width: 100%;
+}
+.fa-bars{
+  color:white;
+}
+#options{
+  background-color: #343a40 !important;
+}
+.option{
+  border-top: 1px solid white;
+}
+.item{
+  color: white !important;
+  padding: 3px;
+  font-size: 20px;
+}
+@media (max-width: 799px) {
+  #nav1{
+    display: none;
+  }
+}
+@media (min-width: 800px) {
+  #nav2{
+    display: none;
+  }
 }

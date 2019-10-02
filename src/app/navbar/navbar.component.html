@@ -1,4 +1,5 @@
-<nav class="navbar navbar-dark bg-dark">
+<div id="nav1">
+  <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
   <ul class="nav navbar-center">
     <li><a class="nav-item" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
@@ -18,3 +19,31 @@
   </ul>
   </form>
 </nav>
+</div>
+<div id="nav2">
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
+    <a class="navbar-brand justify-content-right" (click)="activeOptions()"><i class="fa fa-bars fa-lg" ></i></a>
+  </nav>
+  <div id="options" *ngIf="options" (click)="activeOptions()">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 option" *ngIf="this.user['role']">
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></div>
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></div>
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></div>
+        </div>
+        <div class="col-12 option" *ngIf="!this.user">
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/login']" routerLinkActive="active">Iniciar Sesion</a></div>
+        </div>
+        <div class="col-12 option" *ngIf="this.user">
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/profile']" routerLinkActive="active" >Mi cuenta</a></div>
+        </div>
+        <div class="col-12 option" *ngIf="this.user">
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/home']" routerLinkActive="active" (click)="logOut()">Cerrar sesion</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
