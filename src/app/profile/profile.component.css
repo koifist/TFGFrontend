@@ -11,3 +11,17 @@
   margin: 90px auto 114px auto;
   text-align: center;
 }
+.profileButton{
+  border: 1px solid #242c37;
+  border-radius: 999px;
+  background-color: transparent;
+  text-align: center;
+  background-image: linear-gradient(160deg, #6e6e6e 0%, #000000 100%);
+  color: #fff;
+  font-size: 25px;
+  width: 12rem;
+}
+.profileButton:disabled{
+  background-image: linear-gradient(160deg, #000000 0%, #000000 100%);
+  color: #6e6e6e;
+}

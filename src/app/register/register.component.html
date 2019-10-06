@@ -11,8 +11,11 @@
       <input type="password" class="input-text"  formControlName="password1"  placeholder=" Contraseña" [(ngModel)]="password1">
       <input type="password" class="input-text"  formControlName="password2"  placeholder=" Repite Contraseña" [(ngModel)]="password2">
       <div class="back-next">
-        <input type="submit" class="r-button mt-3" value="Regístrate" [disabled]="(password1 !== password2) || !password1">
+        <input type="submit" class="r-button mt-3 registerButton" value="Regístrate" [disabled]="(password1 !== password2) || !password1">
       </div>
     </form>
+    <div class="col-12">
+      <div id="sign-up" class="pt-5">Si ya tienes una cuenta <a routerLink="/login" class="underline">Inicia sesión</a></div>
+    </div>
   </div>
 </div>
