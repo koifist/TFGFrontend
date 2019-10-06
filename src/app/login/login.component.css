@@ -1,13 +1,13 @@
 .input-text{
-  width: 80%;
+  width: 60%;
+  border-style: none;
   border-bottom: 2px solid black;
+  margin: 0 auto 2rem auto;
+}
+.input-text:focus{
+  outline: none;
 }
 #login{
-  margin: 120px auto 114px auto;
+  margin: 90px auto 114px auto;
   text-align: center;
-  overflow: hidden;
-
-}
-#loginForm{
-  margin: 40px 0;
 }

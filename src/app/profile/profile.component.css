@@ -1,21 +1,13 @@
+.input-text{
+  width: 60%;
+  border-style: none;
+  border-bottom: 2px solid black;
+  margin: 0 auto 2rem auto;
+}
+.input-text:focus{
+  outline: none;
+}
 #profile{
-  margin: 95px auto 100px auto;
+  margin: 90px auto 114px auto;
   text-align: center;
-  overflow: hidden;
-  height: 452px;
-
-}
-.profile-container{
-  padding: 20px;
-  margin: auto;
-  text-align: center;
-  width: 20%;
-  border-style: inset ;
-  -webkit-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-  -moz-box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-  box-shadow: -14px 17px 33px -10px rgba(0,239,247,1);
-
-}
-#profileForm{
-  margin: 40px 0;
 }

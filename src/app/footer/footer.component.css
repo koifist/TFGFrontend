@@ -4,6 +4,7 @@
   color: white !important;
   padding-top: 30px;
   padding-bottom: 30px;
+  min-height: 15%;
 }
 .fa-github, .fa-instagram, .fa-facebook, .fa-linkedin{
   color: white !important;

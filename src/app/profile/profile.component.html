@@ -1,12 +1,16 @@
-<div id="profile">
-  <div class="profile-container">
-    <h2>Cambio de contraseña</h2>
-    <hr class="black_hr text-center">
-    <form id="profileForm" [formGroup]="updatepassForm" (ngSubmit)="updatePass()" >
-      <input type="password" class="row input-text"  formControlName="password1"  placeholder=" Contraseña" [(ngModel)]="password1">
-      <input type="password" class="row input-text"  formControlName="password2"  placeholder=" Repetir contraseña" [(ngModel)]="password2">
+<div id="profile" class="container-fluid">
+  <div class="row mb-5">
+    <div class="col-lg-4 m-auto">
+      <h2>Cambio de contraseña</h2>
+      <hr class="black_hr text-center">
+    </div>
+  </div>
+  <div class="row">
+    <form class="col-lg-5 m-auto col-sm-12 p-0" [formGroup]="updatepassForm" (ngSubmit)="updatePass()" >
+      <input type="password" class="input-text"  formControlName="password1"  placeholder=" Contraseña" [(ngModel)]="password1">
+      <input type="password" class="input-text"  formControlName="password2"  placeholder=" Repetir contraseña" [(ngModel)]="password2">
       <div class="back-next">
-        <input type="submit" class="r-button" value="Guardar" [disabled]="(password1 !== password2) || !password1">
+        <input type="submit" class="r-button mt-3" value="Guardar" [disabled]="(password1 !== password2) || !password1">
       </div>
     </form>
   </div>
