@@ -1,69 +1,120 @@
 <div id="public">
-  <div class="public-container" style="margin:30px">
-    <div class="row">
-    <div class="col-5" style="margin-left: 20px">
-    <div class="flex">
-      <div class="flex-item">
-        <div class="block">
-          <h2 class="zone">Amazon <label style="width:150px">{{amazon}}</label>USD</h2>
-          <div class="flex">
-            <div class="flex-item">
-                <canvas baseChart
+  <div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col-lg-6 col-sm-12" style="display: block">
+        <div class="title text-center">
+          <h2>Amazon</h2>
+        </div>
+          <canvas baseChart class="grafix"
                   [datasets]="amazonData"
                   [labels]="amazonLabels"
-                  [options]="lineChartOptions"
-                  [colors]="lineChartColors"
-                  [chartType]="lineChartType"
-                  [plugins]="lineChartPlugins"
-                  [legend]="false" class="canvas"></canvas>
-            </div>
-          </div>
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  [colors]="barChartColors">
+          </canvas>
+      </div>
+      <div class="col-lg-6 col-sm-12" style="display: block">
+        <div class="title text-center">
+          <h2>Google</h2>
         </div>
+        <canvas baseChart class="grafix"
+                [datasets]="googleData"
+                [labels]="googleLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColors">
+        </canvas>
+      </div>
+      <div class="col-lg-6 col-sm-12" style="display: block">
+        <div class="title text-center">
+          <h2>Apple</h2>
+        </div>
+        <canvas baseChart class="grafix"
+                [datasets]="appleData"
+                [labels]="appleLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColors">
+        </canvas>
+      </div>
+      <div class="col-lg-6 col-sm-12" style="display: block">
+        <div class="title text-center">
+          <h2>Microsoft</h2>
+        </div>
+        <canvas baseChart class="grafix"
+                [datasets]="microsoftData"
+                [labels]="microsoftLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="barChartColors">
+        </canvas>
       </div>
     </div>
-    <div class="block">
-      <h2 class="zone">Google <label style="width:150px">{{google}}</label>USD</h2>
-      <div class="flex">
-        <div class="flex-item">
-          <div style="display: block;">
-            <canvas baseChart
-            [datasets]="googleData"
-            [labels]="googleLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins"
-            [legend]="false" class="canvas" Theme="'dark-theme"></canvas>
+    <div class="row mt-5 mb-5">
+      <div class="col-lg-8 col-sm-12 m-auto">
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-bordered">
+              <thead class="title">
+              <tr>
+                <td>Empresa</td>
+                <td>Precio ayer</td>
+                <td>Precio actual</td>
+              </tr>
+              </thead>
+              <tbody class="data">
+              <tr>
+                <td class="align-middle">Amazon</td>
+                <td class="align-middle">{{prices.amazon.past}}</td>
+                <td class="align-middle">{{prices.amazon.current}}  <fa-icon *ngIf="prices.amazon.past < prices.amazon.current" [icon]="faCaretUpp" style="color:greenyellow" class="fa-lg"></fa-icon>
+                  <fa-icon *ngIf="prices.amazon.past > prices.amazon.current" [icon]="faCaretDown" style="color:red" class="fa-lg"></fa-icon>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle">Amazon</td>
+                <td class="align-middle">{{prices.google.past}}</td>
+                <td class="align-middle">{{prices.google.current}}  <fa-icon *ngIf="prices.google.past < prices.google.current" [icon]="faCaretUpp" style="color:greenyellow" class="fa-lg"></fa-icon>
+                  <fa-icon *ngIf="prices.google.past > prices.google.current" [icon]="faCaretDown" style="color:red" class="fa-lg"></fa-icon>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle">Amazon</td>
+                <td class="align-middle">{{prices.apple.past}}</td>
+                <td class="align-middle">{{prices.apple.current}}  <fa-icon *ngIf="prices.apple.past < prices.apple.current" [icon]="faCaretUpp" style="color:greenyellow" class="fa-lg"></fa-icon>
+                  <fa-icon *ngIf="prices.apple.past > prices.apple.current" [icon]="faCaretDown" style="color:red" class="fa-lg"></fa-icon>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle">Amazon</td>
+                <td class="align-middle">{{prices.microsoft.past}}</td>
+                <td class="align-middle">{{prices.microsoft.current}}  <fa-icon *ngIf="prices.microsoft.past < prices.microsoft.current" [icon]="faCaretUpp" style="color:greenyellow" class="fa-lg"></fa-icon>
+                  <fa-icon *ngIf="prices.microsoft.past > prices.microsoft.current" [icon]="faCaretDown" style="color:red" class="fa-lg"></fa-icon>
+                </td>
+              </tr>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="block">
-      <h2 class="zone">Apple <label style="width:150px">{{apple}}</label>USD</h2>
-      <div class="flex">
-        <div class="flex-item">
-          <div style="display: block;">
-    <canvas baseChart
-            [datasets]="appleData"
-            [labels]="appleLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins"
-            [legend]="false" class="canvas"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-      <div class="col-6">
-        <div class="textArea">
-          <div *ngFor="let msg of messages">
-            <span style="color:rgba(0,79,186,0.95);padding-right:20px">[{{msg['date']}}]</span> <span style="color:black">{{msg['username']}}<br> {{msg['msg']}}</span>
-            <br><br>
-            </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="row">
+  <div class="col-12">
+    <div class="textArea">
+      <div *ngFor="let msg of messages">
+        <span >[{{msg['date']}}]</span> <span style="color:black">{{msg['username']}}<br> {{msg['msg']}}</span>
+        <br><br>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
+

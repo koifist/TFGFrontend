@@ -1,83 +1,105 @@
 import { Component, OnInit } from '@angular/core';
 import * as io from 'socket.io-client';
 import {environment} from '../../environments/environment';
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
-import * as pluginAnnotations from 'chartjs-plugin-annotation';
+import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import {Color, Label} from 'ng2-charts';
 import * as moment from 'moment';
 import {UserService} from '../services/user.service';
 import {first} from 'rxjs/operators';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import {ToastrService} from 'ngx-toastr';
+import {faCaretUp} from '@fortawesome/free-solid-svg-icons/faCaretUp';
+import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
+
 @Component({
   selector: 'app-public',
   templateUrl: './public.component.html',
   styleUrls: ['./public.component.css']
 })
 export class PublicComponent implements OnInit {
+  faCaretUpp = faCaretUp;
+  faCaretDown = faCaretDown;
   stock: object;
   message: object;
   socket: any;
-  amazon = 0.00;
-  google = 0.00;
-  apple = 0.00;
+  prices = {
+    amazon: {
+      past: 0,
+      current: 0
+    },
+    google: {
+      past: 0,
+      current: 0
+    },
+    apple: {
+      past: 0,
+      current: 0
+    },
+    microsoft: {
+      past: 0,
+      current: 0
+    }
+  };
+
   public messages: object[];
   public amazonData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Amazon' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Amazon' },
   ];
   public googleData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Google' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Google' },
   ];
   public appleData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Apple' }
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Apple' }
   ];
-  public amazonLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', ''];
-  public googleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', ''];
-  public appleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', ''];
+  public microsoftData: ChartDataSets[] = [
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Microsoft' }
+  ];
+  public amazonLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
+  public googleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
+  public appleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
+  public microsoftLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
 
-  public lineChartOptions: (ChartOptions & { annotation: any }) = {
+  public barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
-      yAxes: [
-        {
-          id: 'y-axis-0',
-          position: 'left',
-          gridLines: {
-            color: 'rgba(255,255,255,0.1)'
-          },
-          ticks: {
-            min: 0,
-            max: 2500,
-            fontColor: '#000000',
-            fontSize: 25,
-          },
-
-        }
-      ],
-      xAxes: [
-        {
-          ticks: {
-            fontColor: '#000000',
-            fontSize: 20,
-          },
-
-        }
-      ]
+      xAxes: [{
+        ticks: {fontColor: 'black', beginAtZero: true},
+        gridLines: {color: 'white'}
+      }],
+      yAxes: [{
+        ticks: {fontColor: 'black', beginAtZero: true, maxTicksLimit: 10, stepSize: 250, suggestedMax: 2000},
+        gridLines: {color: 'rgb(128, 128, 128)'},
+      }],
     },
-    annotation: {
+    plugins: {
+      datalabels: {
+        anchor: 'end',
+        align: 'end',
+      }
     },
+    layout: {
+      padding: {
+        left: 20,
+        right: 20,
+        top: 30,
+        bottom: 20
+      }
+    }
   };
-  public lineChartColors: Color[] = [
-    { // red
-      borderColor: 'red',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
+  public barChartColors: Color[] = [
+    {
+      backgroundColor: 'rgb(17, 212, 212)',
+      borderColor: 'rgba(225,10,24,0.2)',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-      pointRadius: 5
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
     }
   ];
-  public lineChartType = 'line';
-  public lineChartPlugins = [pluginAnnotations];
-  constructor(private userService: UserService) {
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = false;
+  public barChartPlugins = [pluginDataLabels];
+  constructor(private userService: UserService, private toastr: ToastrService) {
     this.socket = io.connect(environment.baseurl);
   }
   public getMessages(): void {
@@ -96,10 +118,26 @@ export class PublicComponent implements OnInit {
             this.messages = this.messages.reverse();
         },
         err => {
+          this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
+        });
+  }
+  public getPrices(): void {
+    this.userService.getStockInfo()
+      .pipe(first())
+      .subscribe(
+        res => {
+          this.prices.amazon = res.amazon;
+          this.prices.google = res.google;
+          this.prices.apple = res.apple;
+          this.prices.microsoft = res.microsoft;
+        },
+        err => {
+          this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
         });
   }
   ngOnInit() {
     this.getMessages();
+    this.getPrices();
     this.socket.on('messages', (msg: any) => {
       this.message = JSON.parse(msg);
       // @ts-ignore
@@ -113,34 +151,39 @@ export class PublicComponent implements OnInit {
     });
     this.socket.on('stock', (msg: any) => {
       this.stock = JSON.parse(msg);
-      // @ts-ignore
-      if (this.stock && this.stock.google && this.stock.amazon && this.stock.apple) {
-        // @ts-ignore
+      if (this.stock) {
         this.pushPrices();
       }
     });
     }
   public pushPrices() {
       // @ts-ignore
-      this.amazon = this.stock.amazon.price;
+      this.prices.amazon.current = this.stock.amazon.price;
       // @ts-ignore
-      this.apple = this.stock.apple.price;
+      this.prices.apple.current = this.stock.apple.price;
       // @ts-ignore
-      this.google = this.stock.google.price;
+      this.prices.google.current = this.stock.google.price;
       // @ts-ignore
-      this.amazonData[0].data.push(this.stock.amazon.price);
+      this.prices.microsoft.current = this.stock.microsoft.price;
       // @ts-ignore
-      this.googleData[0].data.push(this.stock.google.price);
+      this.amazonData[0].data.unshift(this.stock.amazon.price);
       // @ts-ignore
-      this.appleData[0].data.push(this.stock.apple.price);
-      this.amazonData[0].data.shift();
-      this.googleData[0].data.shift();
-      this.appleData[0].data.shift();
-      this.amazonLabels.push(moment().format('h:m:s'));
-      this.googleLabels.push(moment().format('h:m:s'));
-      this.appleLabels.push(moment().format('h:m:s'));
-      this.amazonLabels.shift();
-      this.googleLabels.shift();
-      this.appleLabels.shift();
+      this.googleData[0].data.unshift(this.stock.google.price);
+      // @ts-ignore
+      this.appleData[0].data.unshift(this.stock.apple.price);
+      // @ts-ignore
+      this.microsoftData[0].data.unshift(this.stock.microsoft.price);
+      this.amazonData[0].data.pop();
+      this.googleData[0].data.pop();
+      this.appleData[0].data.pop();
+      this.microsoftData[0].data.pop();
+      this.amazonLabels.unshift(moment().format('h:m:s'));
+      this.googleLabels.unshift(moment().format('h:m:s'));
+      this.appleLabels.unshift(moment().format('h:m:s'));
+      this.microsoftLabels.unshift(moment().format('h:m:s'));
+      this.amazonLabels.pop();
+      this.googleLabels.pop();
+      this.appleLabels.pop();
+      this.microsoftLabels.pop();
   }
 }

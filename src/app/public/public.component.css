@@ -1,4 +1,43 @@
-#public{
-  text-align: center;
-  min-height: 1500px;
+.title{
+  font-weight: 600;
+}
+@media (max-width: 749px) {
+  .title{
+    font-size: 16px;
+  }
+  .data{
+    font-size: 13px;
+  }
+}
+@media (min-width: 750px) and (max-width: 1149px) {
+  .title{
+    font-size: 23px;
+  }
+  .data{
+    font-size: 19px;
+  }
+}
+@media (min-width: 1150px) and (max-width: 1354px) {
+  .title{
+    font-size: 25px;
+  }
+  .data{
+    font-size: 21px;
+  }
+}
+@media (min-width: 1355px) and (max-width: 1599px) {
+  .title{
+    font-size: 30px;
+  }
+  .data{
+    font-size: 25px;
+  }
+}
+@media (min-width: 1600px) {
+  .title{
+    font-size: 36px;
+  }
+  .data{
+    font-size: 30px;
+  }
 }

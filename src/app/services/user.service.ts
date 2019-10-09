@@ -37,6 +37,14 @@ export class UserService {
         }
       });
   }
+  getStockInfo(): any {
+    return this.http.get(environment.backendpoints.getStockInfo, {
+      headers: {
+        'cache-control': 'no-cache',
+        'Content-Type': 'application/json'
+      }
+    });
+  }
   login(username: string, password: string): any {
     return this.http.post(environment.backendpoints.login,
       {

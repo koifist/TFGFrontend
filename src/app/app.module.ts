@@ -22,8 +22,6 @@ import { PublicComponent } from './public/public.component';
 import { BrokerComponent } from './broker/broker.component';
 import { AdminComponent } from './admin/admin.component';
 import {ChartsModule} from 'ng2-charts';
-import {moment} from 'ngx-bootstrap/chronos/test/chain';
-
 
 @NgModule({
   declarations: [
