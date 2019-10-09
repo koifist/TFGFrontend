@@ -130,6 +130,26 @@ export class PublicComponent implements OnInit {
           this.prices.google = res.google;
           this.prices.apple = res.apple;
           this.prices.microsoft = res.microsoft;
+          // @ts-ignore
+          this.amazonData[0].data.unshift(this.prices.amazon.current);
+          // @ts-ignore
+          this.googleData[0].data.unshift(this.prices.google.current);
+          // @ts-ignore
+          this.appleData[0].data.unshift(this.prices.apple.current);
+          // @ts-ignore
+          this.microsoftData[0].data.unshift(this.prices.microsoft.current);
+          this.amazonData[0].data.pop();
+          this.googleData[0].data.pop();
+          this.appleData[0].data.pop();
+          this.microsoftData[0].data.pop();
+          this.amazonLabels.unshift(moment().format('h:m:s'));
+          this.googleLabels.unshift(moment().format('h:m:s'));
+          this.appleLabels.unshift(moment().format('h:m:s'));
+          this.microsoftLabels.unshift(moment().format('h:m:s'));
+          this.amazonLabels.pop();
+          this.googleLabels.pop();
+          this.appleLabels.pop();
+          this.microsoftLabels.pop();
         },
         err => {
           this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
