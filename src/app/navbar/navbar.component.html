@@ -2,9 +2,7 @@
   <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand justify-content-center" routerLink="/home"><img alt="img" class="image" src="../../assets/media/logo.png"></a>
   <ul class="nav navbar-center">
-    <li><a class="nav-item" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></li>
-    <li><a class="nav-item" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></li>
-    <li><a class="nav-item" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></li>
+    <li><a class="nav-item" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']"><span>RTSA ZONE</span></a></li>
   </ul>
   <form class="form-inline">
   <ul class="nav">
@@ -13,6 +11,7 @@
       <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer;color: white"><fa-icon [icon]="faUser" ></fa-icon></a></li>
       <div ngbDropdownMenu class="drop">
         <button ngbDropdownItem [routerLink]="['/profile']"  routerLinkActive="active" >Mi cuenta</button>
+        <button ngbDropdownItem [routerLink]="['/admZone']" *ngIf="this.user['role']==='ADM'" routerLinkActive="active" >Administrador</button>
         <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']"  routerLinkActive="active" >Cerrar sesion</button>
       </div>
     </div>
@@ -29,9 +28,10 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 option" *ngIf="this.user['role']">
-          <div class="container-fluid text-center"><a class="item" [routerLink]="['/admZone']" routerLinkActive="active" *ngIf="this.user['role']==='ADM'"><span>ADM ZONE</span></a></div>
-          <div class="container-fluid text-center"><a class="item" [routerLink]="['/broZone']" routerLinkActive="active" *ngIf="this.user['role']==='BRO'"><span>BROKER ZONE</span></a></div>
-          <div class="container-fluid text-center"><a class="item" [routerLink]="['/RTSAZone']" routerLinkActive="active" *ngIf="this.user['role']==='PUB'"><span>RTSA ZONE</span></a></div>
+          <div class="container-fluid text-center"><a class="item" [routerLink]="['/RTSAZone']" routerLinkActive="active"><span>RTSA ZONE</span></a></div>
+        </div>
+        <div class="col-12 option" *ngIf="this.user['role']==='ADM'">
+        <div class="container-fluid text-center"><a class="item" [routerLink]="['/admZone']" routerLinkActive="active"><span>ADM ZONE</span></a></div>
         </div>
         <div class="col-12 option" *ngIf="!this.user">
           <div class="container-fluid text-center"><a class="item" [routerLink]="['/login']" routerLinkActive="active">Iniciar Sesion</a></div>

@@ -19,7 +19,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
 import { ProfileComponent } from './profile/profile.component';
 import { PublicComponent } from './public/public.component';
-import { BrokerComponent } from './broker/broker.component';
 import { AdminComponent } from './admin/admin.component';
 import {ChartsModule} from 'ng2-charts';
 
@@ -33,7 +32,6 @@ import {ChartsModule} from 'ng2-charts';
     FooterComponent,
     ProfileComponent,
     PublicComponent,
-    BrokerComponent,
     AdminComponent
   ],
   imports: [

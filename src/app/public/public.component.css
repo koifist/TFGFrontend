@@ -1,5 +1,40 @@
 .title{
   font-weight: 600;
+  background-color: #343a40;
+  color: white;
+}
+.date{
+  color: #242c37;
+  font-weight: 600;
+}
+.textArea{
+  text-align: left;
+  width: 100%;
+  border-style: solid;
+  border-radius: 6px;
+  border-width: 2px;
+  padding: 15px;
+  resize: none;
+  overflow-y: scroll;
+}
+.textArea::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px transparent;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.textArea::-webkit-scrollbar * {
+  background:transparent;
+}
+.textArea::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+.textArea::-webkit-scrollbar-thumb
+{
+  background-color: #000000;
 }
 @media (max-width: 749px) {
   .title{
@@ -7,6 +42,12 @@
   }
   .data{
     font-size: 13px;
+  }
+  #charts{
+    display: none;
+  }
+  .heightAlign{
+    height:200px!important
   }
 }
 @media (min-width: 750px) and (max-width: 1149px) {
@@ -16,6 +57,12 @@
   .data{
     font-size: 19px;
   }
+  #charts{
+    display: none;
+  }
+  .heightAlign{
+    height:300px!important
+  }
 }
 @media (min-width: 1150px) and (max-width: 1354px) {
   .title{
@@ -23,6 +70,9 @@
   }
   .data{
     font-size: 21px;
+  }
+  .heightAlign{
+    height:300px!important
   }
 }
 @media (min-width: 1355px) and (max-width: 1599px) {
@@ -32,12 +82,18 @@
   .data{
     font-size: 25px;
   }
+  .heightAlign{
+    height:446px!important
+  }
 }
 @media (min-width: 1600px) {
   .title{
-    font-size: 36px;
+    font-size: 30px;
   }
   .data{
-    font-size: 30px;
+    font-size: 25px;
+  }
+  .heightAlign{
+    height:446px!important
   }
 }

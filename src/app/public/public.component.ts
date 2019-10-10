@@ -73,8 +73,13 @@ export class PublicComponent implements OnInit {
     },
     plugins: {
       datalabels: {
-        anchor: 'end',
-        align: 'end',
+        anchor: 'center',
+        align: 'center',
+        formatter: Math.round,
+        font: {
+          weight: 'bold',
+          size: 15
+        }
       }
     },
     layout: {
@@ -84,7 +89,7 @@ export class PublicComponent implements OnInit {
         top: 30,
         bottom: 20
       }
-    }
+    },
   };
   public barChartColors: Color[] = [
     {
@@ -93,7 +98,7 @@ export class PublicComponent implements OnInit {
       pointBackgroundColor: 'rgba(225,10,24,0.2)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)',
     }
   ];
   public barChartType: ChartType = 'bar';
@@ -131,25 +136,25 @@ export class PublicComponent implements OnInit {
           this.prices.apple = res.apple;
           this.prices.microsoft = res.microsoft;
           // @ts-ignore
-          this.amazonData[0].data.unshift(this.prices.amazon.current);
+          this.amazonData[0].data.push(this.prices.amazon.current);
           // @ts-ignore
-          this.googleData[0].data.unshift(this.prices.google.current);
+          this.googleData[0].data.push(this.prices.google.current);
           // @ts-ignore
-          this.appleData[0].data.unshift(this.prices.apple.current);
+          this.appleData[0].data.push(this.prices.apple.current);
           // @ts-ignore
-          this.microsoftData[0].data.unshift(this.prices.microsoft.current);
-          this.amazonData[0].data.pop();
-          this.googleData[0].data.pop();
-          this.appleData[0].data.pop();
-          this.microsoftData[0].data.pop();
-          this.amazonLabels.unshift(moment().format('h:m:s'));
-          this.googleLabels.unshift(moment().format('h:m:s'));
-          this.appleLabels.unshift(moment().format('h:m:s'));
-          this.microsoftLabels.unshift(moment().format('h:m:s'));
-          this.amazonLabels.pop();
-          this.googleLabels.pop();
-          this.appleLabels.pop();
-          this.microsoftLabels.pop();
+          this.microsoftData[0].data.push(this.prices.microsoft.current);
+          this.amazonData[0].data.shift();
+          this.googleData[0].data.shift();
+          this.appleData[0].data.shift();
+          this.microsoftData[0].data.shift();
+          this.amazonLabels.push(moment().format('HH:MM:s'));
+          this.googleLabels.push(moment().format('HH:MM:s'));
+          this.appleLabels.push(moment().format('HH:MM:s'));
+          this.microsoftLabels.push(moment().format('HH:MM:s'));
+          this.amazonLabels.shift();
+          this.googleLabels.shift();
+          this.appleLabels.shift();
+          this.microsoftLabels.shift();
         },
         err => {
           this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
@@ -186,24 +191,24 @@ export class PublicComponent implements OnInit {
       // @ts-ignore
       this.prices.microsoft.current = this.stock.microsoft.price;
       // @ts-ignore
-      this.amazonData[0].data.unshift(this.stock.amazon.price);
+      this.amazonData[0].data.push(this.stock.amazon.price);
       // @ts-ignore
-      this.googleData[0].data.unshift(this.stock.google.price);
+      this.googleData[0].data.push(this.stock.google.price);
       // @ts-ignore
-      this.appleData[0].data.unshift(this.stock.apple.price);
+      this.appleData[0].data.push(this.stock.apple.price);
       // @ts-ignore
-      this.microsoftData[0].data.unshift(this.stock.microsoft.price);
-      this.amazonData[0].data.pop();
-      this.googleData[0].data.pop();
-      this.appleData[0].data.pop();
-      this.microsoftData[0].data.pop();
-      this.amazonLabels.unshift(moment().format('h:m:s'));
-      this.googleLabels.unshift(moment().format('h:m:s'));
-      this.appleLabels.unshift(moment().format('h:m:s'));
-      this.microsoftLabels.unshift(moment().format('h:m:s'));
-      this.amazonLabels.pop();
-      this.googleLabels.pop();
-      this.appleLabels.pop();
-      this.microsoftLabels.pop();
+      this.microsoftData[0].data.push(this.stock.microsoft.price);
+      this.amazonData[0].data.shift();
+      this.googleData[0].data.shift();
+      this.appleData[0].data.shift();
+      this.microsoftData[0].data.shift();
+      this.amazonLabels.push(moment().format('HH:MM:s'));
+      this.googleLabels.push(moment().format('HH:MM:s'));
+      this.appleLabels.push(moment().format('HH:MM:s'));
+      this.microsoftLabels.push(moment().format('HH:MM:s'));
+      this.amazonLabels.shift();
+      this.googleLabels.shift();
+      this.appleLabels.shift();
+      this.microsoftLabels.shift();
   }
 }

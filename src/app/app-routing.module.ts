@@ -4,7 +4,6 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
-import {BrokerComponent} from './broker/broker.component';
 import {AdminComponent} from './admin/admin.component';
 import {PublicComponent} from './public/public.component';
 
@@ -16,7 +15,6 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'RTSAZone', component: PublicComponent},
-  {path: 'broZone', component: BrokerComponent},
   {path: 'admZone', component: AdminComponent}
 ];
 @NgModule({
