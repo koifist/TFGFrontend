@@ -3,10 +3,6 @@
   background-color: #343a40;
   color: white;
 }
-.date{
-  color: #242c37;
-  font-weight: 600;
-}
 .textArea{
   text-align: left;
   width: 100%;
@@ -50,12 +46,12 @@
     height:200px!important
   }
 }
-@media (min-width: 750px) and (max-width: 1149px) {
+@media (min-width: 750px) and (max-width: 991px) {
   .title{
-    font-size: 23px;
+    font-size: 25px;
   }
   .data{
-    font-size: 19px;
+    font-size: 21px;
   }
   #charts{
     display: none;
@@ -64,23 +60,12 @@
     height:300px!important
   }
 }
-@media (min-width: 1150px) and (max-width: 1354px) {
+@media (min-width: 992px) and (max-width: 1599px) {
   .title{
     font-size: 25px;
   }
   .data{
-    font-size: 21px;
-  }
-  .heightAlign{
-    height:300px!important
-  }
-}
-@media (min-width: 1355px) and (max-width: 1599px) {
-  .title{
-    font-size: 30px;
-  }
-  .data{
-    font-size: 25px;
+    font-size: 23px;
   }
   .heightAlign{
     height:446px!important

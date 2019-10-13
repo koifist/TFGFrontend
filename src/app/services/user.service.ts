@@ -45,6 +45,14 @@ export class UserService {
       }
     });
   }
+  getStockHistory(): any {
+    return this.http.get(environment.backendpoints.getStockHistory, {
+      headers: {
+        'cache-control': 'no-cache',
+        'Content-Type': 'application/json'
+      }
+    });
+  }
   login(username: string, password: string): any {
     return this.http.post(environment.backendpoints.login,
       {

@@ -1,7 +1,12 @@
-<div id="public">
+<div class="d-flex justify-content-center mt-5" *ngIf="!loaded">
+  <div class="spinner-border" role="status" style="height:100px; width:100px">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div id="public" *ngIf="loaded">
   <div class="container-fluid">
     <div id="charts" class="row mt-5">
-      <div class="col-lg-6 col-sm-12" style="display: block">
+      <div class="col-6" style="display: block">
         <div class="title text-center col-7 m-auto">
           <h2>Amazon</h2>
         </div>
@@ -15,7 +20,7 @@
                   [colors]="barChartColors">
           </canvas>
       </div>
-      <div class="col-lg-6 col-sm-12" style="display: block">
+      <div class="col-6" style="display: block">
         <div class="title text-center col-7 m-auto">
           <h2>Google</h2>
         </div>
@@ -29,7 +34,7 @@
                 [colors]="barChartColors">
         </canvas>
       </div>
-      <div class="col-lg-6 col-sm-12" style="display: block">
+      <div class="col-6" style="display: block">
         <div class="title text-center col-7 m-auto">
           <h2>Apple</h2>
         </div>
@@ -43,7 +48,7 @@
                 [colors]="barChartColors">
         </canvas>
       </div>
-      <div class="col-lg-6 col-sm-12" style="display: block">
+      <div class="col-6" style="display: block">
         <div class="title text-center col-7 m-auto">
           <h2>Microsoft</h2>
         </div>
@@ -59,7 +64,7 @@
       </div>
     </div>
     <div class="row mt-5 mb-5" >
-      <div class="col-lg-6 col-sm-12">
+      <div class="col-lg-6 col-md-12">
             <table class="heightAlign table table-bordered table-striped">
               <thead class="title">
               <tr>
@@ -100,11 +105,11 @@
               </tbody>
             </table>
       </div>
-      <div class="col-lg-6 col-sm-12 mx-auto">
-        <div class="textArea col-12 heightAlign">
+      <div class="col-lg-6 col-md-12 mx-auto">
+        <div class="textArea col-12 heightAlign data">
           <div *ngFor="let msg of messages">
-            <span class="date">[{{msg['date']}}] {{msg['username']}}</span> <br><span>{{msg['msg']}}</span>
-            <br><br>
+            <span style="font-weight: 600">[{{msg['date']}}] {{msg['username']}}</span> <br><span>{{msg['msg']}}</span>
+            <br>
           </div>
       </div>
       </div>

@@ -10,6 +10,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import {ToastrService} from 'ngx-toastr';
 import {faCaretUp} from '@fortawesome/free-solid-svg-icons/faCaretUp';
 import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-public',
@@ -17,9 +18,9 @@ import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
   styleUrls: ['./public.component.css']
 })
 export class PublicComponent implements OnInit {
+  loaded = false;
   faCaretUpp = faCaretUp;
   faCaretDown = faCaretDown;
-  stock: object;
   message: object;
   socket: any;
   prices = {
@@ -43,39 +44,41 @@ export class PublicComponent implements OnInit {
 
   public messages: object[];
   public amazonData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Amazon' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Amazon' },
   ];
   public googleData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Google' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Google' },
   ];
   public appleData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Apple' }
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Apple' }
   ];
   public microsoftData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Microsoft' }
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Microsoft' }
   ];
-  public amazonLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
-  public googleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
-  public appleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
-  public microsoftLabels: Label[] = ['', '', '', '', '' , '', '', '', '', ''];
+  public amazonLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+  public googleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+  public appleLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+  public microsoftLabels: Label[] = ['', '', '', '', '' , '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
       xAxes: [{
-        ticks: {fontColor: 'black', beginAtZero: true},
-        gridLines: {color: 'white'}
+        ticks: {fontColor: 'black'},
+        gridLines: {color: 'transparent'}
       }],
       yAxes: [{
-        ticks: {fontColor: 'black', beginAtZero: true, maxTicksLimit: 10, stepSize: 250, suggestedMax: 2000},
-        gridLines: {color: 'rgb(128, 128, 128)'},
+        ticks: {fontColor: 'black'},
+        gridLines: {color: 'black'},
       }],
     },
     plugins: {
       datalabels: {
-        anchor: 'center',
-        align: 'center',
-        formatter: Math.round,
+        display: false,
+        anchor: 'start',
+        align: 'top',
+        rotation: 320,
+        clamp: true,
         font: {
           weight: 'bold',
           size: 15
@@ -84,24 +87,26 @@ export class PublicComponent implements OnInit {
     },
     layout: {
       padding: {
-        left: 20,
-        right: 20,
+        left: 0,
+        right: 0,
         top: 30,
         bottom: 20
       }
     },
+    elements: {
+      line: {
+        tension: 0
+      }
+    }
   };
   public barChartColors: Color[] = [
     {
-      backgroundColor: 'rgb(17, 212, 212)',
-      borderColor: 'rgba(225,10,24,0.2)',
-      pointBackgroundColor: 'rgba(225,10,24,0.2)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(225,10,24,0.2)',
+      backgroundColor: 'transparent',
+      borderColor: 'rgb(16, 2, 217)',
+      pointBackgroundColor: 'rgb(16, 2, 217)',
     }
   ];
-  public barChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'line';
   public barChartLegend = false;
   public barChartPlugins = [pluginDataLabels];
   constructor(private userService: UserService, private toastr: ToastrService) {
@@ -127,42 +132,50 @@ export class PublicComponent implements OnInit {
         });
   }
   public getPrices(): void {
-    this.userService.getStockInfo()
-      .pipe(first())
-      .subscribe(
-        res => {
-          this.prices.amazon = res.amazon;
-          this.prices.google = res.google;
-          this.prices.apple = res.apple;
-          this.prices.microsoft = res.microsoft;
-          // @ts-ignore
-          this.amazonData[0].data.push(this.prices.amazon.current);
-          // @ts-ignore
-          this.googleData[0].data.push(this.prices.google.current);
-          // @ts-ignore
-          this.appleData[0].data.push(this.prices.apple.current);
-          // @ts-ignore
-          this.microsoftData[0].data.push(this.prices.microsoft.current);
-          this.amazonData[0].data.shift();
-          this.googleData[0].data.shift();
-          this.appleData[0].data.shift();
-          this.microsoftData[0].data.shift();
-          this.amazonLabels.push(moment().format('HH:MM:s'));
-          this.googleLabels.push(moment().format('HH:MM:s'));
-          this.appleLabels.push(moment().format('HH:MM:s'));
-          this.microsoftLabels.push(moment().format('HH:MM:s'));
-          this.amazonLabels.shift();
-          this.googleLabels.shift();
-          this.appleLabels.shift();
-          this.microsoftLabels.shift();
-        },
-        err => {
-          this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
-        });
+    this.loaded = true;
+    const time = moment();
+    const day = time.isoWeekday();
+    const start = moment('15:25:00', 'HH:mm:ss');
+    const end = moment('22:00:00', 'HH:mm:ss');
+    if (time.isBetween(start, end) && day < 6) {
+      this.userService.getStockInfo()
+        .pipe(first())
+        .subscribe(
+          res => {
+            // @ts-ignore
+            this.amazonData[0].data.push(this.prices.amazon.current);
+            // @ts-ignore
+            this.googleData[0].data.push(this.prices.google.current);
+            // @ts-ignore
+            this.appleData[0].data.push(this.prices.apple.current);
+            // @ts-ignore
+            this.microsoftData[0].data.push(this.prices.microsoft.current);
+            this.amazonData[0].data.shift();
+            this.googleData[0].data.shift();
+            this.appleData[0].data.shift();
+            this.microsoftData[0].data.shift();
+            this.amazonLabels.push(moment().format('HH:MM:s'));
+            this.googleLabels.push(moment().format('HH:MM:s'));
+            this.appleLabels.push(moment().format('HH:MM:s'));
+            this.microsoftLabels.push(moment().format('HH:MM:s'));
+            this.amazonLabels.shift();
+            this.googleLabels.shift();
+            this.appleLabels.shift();
+            this.microsoftLabels.shift();
+            setTimeout(() => {
+              this.getPrices();
+            }, 300000);
+          },
+          err => {
+            this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
+          });
+    } else {
+      this.toastr.info('Actualmente la bolsa no esta en activo. Le mostraremos la última información recogida.');
+    }
   }
   ngOnInit() {
     this.getMessages();
-    this.getPrices();
+    this.getHistory();
     this.socket.on('messages', (msg: any) => {
       this.message = JSON.parse(msg);
       // @ts-ignore
@@ -174,41 +187,41 @@ export class PublicComponent implements OnInit {
         this.message.username = this.message.username.split('@')[0];
       }
     });
-    this.socket.on('stock', (msg: any) => {
-      this.stock = JSON.parse(msg);
-      if (this.stock) {
-        this.pushPrices();
-      }
-    });
     }
-  public pushPrices() {
-      // @ts-ignore
-      this.prices.amazon.current = this.stock.amazon.price;
-      // @ts-ignore
-      this.prices.apple.current = this.stock.apple.price;
-      // @ts-ignore
-      this.prices.google.current = this.stock.google.price;
-      // @ts-ignore
-      this.prices.microsoft.current = this.stock.microsoft.price;
-      // @ts-ignore
-      this.amazonData[0].data.push(this.stock.amazon.price);
-      // @ts-ignore
-      this.googleData[0].data.push(this.stock.google.price);
-      // @ts-ignore
-      this.appleData[0].data.push(this.stock.apple.price);
-      // @ts-ignore
-      this.microsoftData[0].data.push(this.stock.microsoft.price);
-      this.amazonData[0].data.shift();
-      this.googleData[0].data.shift();
-      this.appleData[0].data.shift();
-      this.microsoftData[0].data.shift();
-      this.amazonLabels.push(moment().format('HH:MM:s'));
-      this.googleLabels.push(moment().format('HH:MM:s'));
-      this.appleLabels.push(moment().format('HH:MM:s'));
-      this.microsoftLabels.push(moment().format('HH:MM:s'));
-      this.amazonLabels.shift();
-      this.googleLabels.shift();
-      this.appleLabels.shift();
-      this.microsoftLabels.shift();
+  public getHistory() {
+    this.userService.getStockHistory()
+      .pipe(first())
+      .subscribe(
+        res => {
+          _.forEach(res.amazon, (data) => {
+            this.amazonData[0].data.push(data.price);
+            this.amazonData[0].data.shift();
+            this.amazonLabels.push(data.time);
+            this.amazonLabels.shift();
+          });
+          _.forEach(res.google, (data) => {
+            this.googleData[0].data.push(data.price);
+            this.googleData[0].data.shift();
+            this.googleLabels.push(data.time);
+            this.googleLabels.shift();
+          });
+          _.forEach(res.apple, (data) => {
+            this.appleData[0].data.push(data.price);
+            this.appleData[0].data.shift();
+            this.appleLabels.push(data.time);
+            this.appleLabels.shift();
+          });
+          _.forEach(res.microsoft, (data) => {
+            this.microsoftData[0].data.push(data.price);
+            this.microsoftData[0].data.shift();
+            this.microsoftLabels.push(data.time);
+            this.microsoftLabels.shift();
+          });
+          this.prices = res.prices;
+          this.getPrices();
+        },
+        err => {
+          this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
+        });
   }
 }

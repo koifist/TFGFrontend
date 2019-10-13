@@ -12,7 +12,8 @@ export const environment = {
     getMessages: BASE_URL + '/getMessages',
     sendMessage: BASE_URL + '/sendMessage',
     upgradeBroker: BASE_URL + '/createBroker',
-    getStockInfo: BASE_URL + '/stockInfo'
+    getStockInfo: BASE_URL + '/stockInfo',
+    getStockHistory: BASE_URL + '/stockHistory',
   },
   baseurl: 'http://localhost:3000'
 };
