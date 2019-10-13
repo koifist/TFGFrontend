@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('currentUser', JSON.stringify(res.currentUser));
             this.router.navigateByUrl('/home');
           }, err => {
-            if (err.status === 401) {
+            if (err.status === 405) {
               this.toastr.error('Tu correo electrónico o la contraseña son incorrectos. Inténtalo de nuevo');
             } else {
               this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
