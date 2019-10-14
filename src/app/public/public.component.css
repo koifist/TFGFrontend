@@ -2,16 +2,53 @@
   font-weight: 600;
   background-color: #343a40;
   color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.tableTitle{
+  font-weight: 600;
+  background-color: #343a40;
+  color: white;
+}
+.msgInput{
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  margin: 0;
+  resize: none;
+  overflow-y: scroll;
+}
+.msgInput:hover{
+  outline: 0 !important;
 }
 .textArea{
   text-align: left;
   width: 100%;
+  height: 80%;
   border-style: solid;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   border-width: 2px;
   padding: 15px;
   resize: none;
   overflow-y: scroll;
+}
+.textInput{
+  text-align: left;
+  width: 100%;
+  height: 19%;
+  border-style: solid;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-width: 2px;
+  border-top-width: 0;
+  padding: 0;
+  resize: none;
+}
+.send{
+  border-left: black solid 2px;
+  width: 100%;
+  height: 100%;
 }
 .textArea::-webkit-scrollbar-track
 {
@@ -32,8 +69,27 @@
 {
   background-color: #000000;
 }
+.msgInput::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px transparent;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.msgInput::-webkit-scrollbar * {
+  background:transparent;
+}
+.msgInput::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: transparent;
+}
+
+.msgInput::-webkit-scrollbar-thumb
+{
+  background-color: transparent;
+}
 @media (max-width: 749px) {
-  .title{
+  .tableTitle{
     font-size: 16px;
   }
   .data{
@@ -47,11 +103,11 @@
   }
 }
 @media (min-width: 750px) and (max-width: 991px) {
-  .title{
-    font-size: 25px;
+  .tableTitle{
+    font-size: 24px;
   }
   .data{
-    font-size: 21px;
+    font-size: 16px;
   }
   #charts{
     display: none;
@@ -61,22 +117,22 @@
   }
 }
 @media (min-width: 992px) and (max-width: 1599px) {
-  .title{
-    font-size: 25px;
+  .tableTitle{
+    font-size: 24px;
   }
   .data{
-    font-size: 23px;
+    font-size: 16px;
   }
   .heightAlign{
     height:446px!important
   }
 }
 @media (min-width: 1600px) {
-  .title{
-    font-size: 30px;
+  .tableTitle{
+    font-size: 24px;
   }
   .data{
-    font-size: 25px;
+    font-size: 16px;
   }
   .heightAlign{
     height:446px!important

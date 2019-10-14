@@ -10,9 +10,9 @@
     <div ngbDropdown class="d-inline-block" display="dynamic" placement="bottom-right" *ngIf="this.user">
       <li><a class="nav-item" ngbDropdownToggle style="cursor:pointer;color: white"><fa-icon [icon]="faUser" ></fa-icon></a></li>
       <div ngbDropdownMenu class="drop">
-        <button ngbDropdownItem [routerLink]="['/profile']"  routerLinkActive="active" >Mi cuenta</button>
-        <button ngbDropdownItem [routerLink]="['/admZone']" *ngIf="this.user['role']==='ADM'" routerLinkActive="active" >Administrador</button>
-        <button ngbDropdownItem (click)="logOut()" [routerLink]="['/home']"  routerLinkActive="active" >Cerrar sesion</button>
+        <button ngbDropdownItem class="dropdownItems" [routerLink]="['/profile']"  routerLinkActive="active" >Mi cuenta</button>
+        <button ngbDropdownItem class="dropdownItems" [routerLink]="['/admZone']" *ngIf="this.user['role']==='ADM'" routerLinkActive="active" >Administrador</button>
+        <button ngbDropdownItem class="dropdownItems" (click)="logOut()" [routerLink]="['/home']"  routerLinkActive="active" >Cerrar sesion</button>
       </div>
     </div>
   </ul>

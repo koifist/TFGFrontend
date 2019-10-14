@@ -10,6 +10,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import {ToastrService} from 'ngx-toastr';
 import {faCaretUp} from '@fortawesome/free-solid-svg-icons/faCaretUp';
 import {faCaretDown} from '@fortawesome/free-solid-svg-icons/faCaretDown';
+import {faPaperPlane} from '@fortawesome/free-solid-svg-icons/faPaperPlane';
 import * as _ from 'lodash';
 
 @Component({
@@ -21,6 +22,8 @@ export class PublicComponent implements OnInit {
   loaded = false;
   faCaretUpp = faCaretUp;
   faCaretDown = faCaretDown;
+  faPaperPlane = faPaperPlane;
+  msg = '';
   message: object;
   socket: any;
   prices = {

@@ -8,18 +8,27 @@ img.image{
   padding-top: 2px;
 }
 .navbar-brand:hover {
-  border-width: 0px;
+  border-width: 0;
 }
 .nav-item{
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
-  padding: 0px;
+  padding: 0;
   margin-right: 30px;
   color: white;
+}
+.dropdownItems{
+  font-size: 18px;
+  color:white;
+}
+.dropdownItems:hover{
+  background-color: #6e6e6e;
 }
 .drop{
   font-weight: 600 !important;
   font-size: x-large !important;
+  background-color: #343a40;
+  border: #6e6e6e solid 2px;
 }
 #nav1 {
   position: fixed !important;
