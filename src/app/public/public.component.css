@@ -5,10 +5,27 @@
   padding-top: 3px;
   padding-bottom: 3px;
 }
+.sendButton{
+  border: 1px solid #242c37;
+  background-color: transparent;
+  text-align: center;
+  background-image: linear-gradient(160deg, #898989 0%, #000000 40%);
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.sendButton:hover{
+  background-image: linear-gradient(160deg, #898989 0%, #000000 100%);
+}
+
 .tableTitle{
   font-weight: 600;
   background-color: #343a40;
   color: white;
+}
+.borderMessages{
+  border: solid black 2px;
+  border-radius: 2px;
 }
 .msgInput{
   width: 100%;
@@ -18,69 +35,51 @@
   resize: none;
   overflow-y: scroll;
 }
-.msgInput:hover{
+.msgInput:hover, .msgInput:focus-within{
   outline: 0 !important;
 }
-.textArea{
+.textArea, .textAreaPublic{
   text-align: left;
   width: 100%;
-  height: 80%;
-  border-style: solid;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-width: 2px;
   padding: 15px;
   resize: none;
   overflow-y: scroll;
-}
-.textInput{
-  text-align: left;
-  width: 100%;
-  height: 19%;
-  border-style: solid;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-width: 2px;
-  border-top-width: 0;
-  padding: 0;
-  resize: none;
 }
 .send{
   border-left: black solid 2px;
   width: 100%;
   height: 100%;
 }
-.textArea::-webkit-scrollbar-track
+.textArea::-webkit-scrollbar-track, .textAreaPublic::-webkit-scrollbar-track
 {
   -webkit-box-shadow: inset 0 0 6px transparent;
   background-color: transparent;
   border-radius: 10px;
 }
-.textArea::-webkit-scrollbar * {
+.textArea::-webkit-scrollbar, .textAreaPublic::-webkit-scrollbar * {
   background:transparent;
 }
-.textArea::-webkit-scrollbar
+.textArea::-webkit-scrollbar, .textAreaPublic::-webkit-scrollbar
 {
   width: 3px;
   background-color: #F5F5F5;
 }
 
-.textArea::-webkit-scrollbar-thumb
+.textArea::-webkit-scrollbar-thumb, .textAreaPublic::-webkit-scrollbar-thumb
 {
   background-color: #000000;
 }
 .msgInput::-webkit-scrollbar-track
 {
-  -webkit-box-shadow: inset 0 0 6px transparent;
+  -webkit-box-shadow: inset 0 0 0 transparent;
   background-color: transparent;
-  border-radius: 10px;
 }
 .msgInput::-webkit-scrollbar * {
   background:transparent;
 }
 .msgInput::-webkit-scrollbar
 {
-  width: 3px;
+  width: 0;
   background-color: transparent;
 }
 
@@ -90,51 +89,87 @@
 }
 @media (max-width: 749px) {
   .tableTitle{
-    font-size: 16px;
+    font-size: 16px!important;
   }
   .data{
-    font-size: 13px;
+    font-size: 13px!important;
   }
   #charts{
-    display: none;
+    display: none!important;
   }
-  .heightAlign{
+  .heightAlign, .textAreaPublic{
     height:200px!important
+  }
+  .textArea{
+    height:168px!important;
+  }
+  .textInput{
+    height: 30px!important;
+  }
+  .sendIcon{
+    font-size: 10px!important;
   }
 }
 @media (min-width: 750px) and (max-width: 991px) {
   .tableTitle{
-    font-size: 24px;
+    font-size: 24px!important;
   }
   .data{
-    font-size: 16px;
+    font-size: 16px!important;
   }
   #charts{
-    display: none;
+    display: none!important;
   }
-  .heightAlign{
+  .heightAlign, .textAreaPublic{
     height:300px!important
+  }
+  .textArea{
+    height:248px!important;
+  }
+  .textInput{
+    height: 50px!important;
+  }
+  .sendIcon{
+    font-size: 12px!important;
   }
 }
 @media (min-width: 992px) and (max-width: 1599px) {
   .tableTitle{
-    font-size: 24px;
+    font-size: 24px!important;
   }
   .data{
-    font-size: 16px;
+    font-size: 16px!important;
   }
-  .heightAlign{
+  .heightAlign, .textAreaPublic{
     height:446px!important
+  }
+  .textArea{
+    height:394px!important;
+  }
+  .textInput{
+    height: 50px!important;
+  }
+  .sendIcon{
+    font-size: 14px!important;
   }
 }
 @media (min-width: 1600px) {
   .tableTitle{
-    font-size: 24px;
+    font-size: 24px!important;
   }
   .data{
-    font-size: 16px;
+    font-size: 16px!important;
   }
-  .heightAlign{
-    height:446px!important
+  .heightAlign, .textAreaPublic{
+    height:460px!important;
+  }
+  .textArea{
+    height:395px!important;
+  }
+  .textInput{
+    height: 60px!important;
+  }
+  .sendIcon{
+    font-size: 20px!important;
   }
 }

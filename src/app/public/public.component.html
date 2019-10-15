@@ -10,7 +10,7 @@
         <div class="title text-center col-7 mx-auto">
           <h2>Amazon</h2>
         </div>
-          <canvas baseChart class="grafix"
+          <canvas baseChart
                   [datasets]="amazonData"
                   [labels]="amazonLabels"
                   [options]="barChartOptions"
@@ -24,7 +24,7 @@
         <div class="title text-center col-7 mx-auto">
           <h2>Google</h2>
         </div>
-        <canvas baseChart class="grafix"
+        <canvas baseChart
                 [datasets]="googleData"
                 [labels]="googleLabels"
                 [options]="barChartOptions"
@@ -38,7 +38,7 @@
         <div class="title text-center col-7 mx-auto">
           <h2>Apple</h2>
         </div>
-        <canvas baseChart class="grafix"
+        <canvas baseChart
                 [datasets]="appleData"
                 [labels]="appleLabels"
                 [options]="barChartOptions"
@@ -52,7 +52,7 @@
         <div class="title text-center col-7 mx-auto">
           <h2>Microsoft</h2>
         </div>
-        <canvas baseChart class="grafix"
+        <canvas baseChart
                 [datasets]="microsoftData"
                 [labels]="microsoftLabels"
                 [options]="barChartOptions"
@@ -105,19 +105,23 @@
               </tbody>
             </table>
       </div>
-      <div class="col-lg-6 col-md-12 mx-auto heightAlign">
-        <div class="textArea col-12 data">
-          <div *ngFor="let msg of messages">
-            <span style="font-weight: 600">[{{msg['date']}}] {{msg['username']}}</span> <br><span>{{msg['msg']}}</span>
-            <br>
-          </div>
-      </div>
-        <div class="textInput col-12 row data ml-0">
-            <textarea ngModel="msg" class="msgInput col-11 px-3 py-2"></textarea>
-          <div class="col-1 send">
-            <div style="vertical-align: middle">
-            <fa-icon [icon]="faPaperPlane" style="color: #343a40;" class="align-self-center py-2 fa-2x"></fa-icon>
+      <div class="col-lg-6 col-md-12">
+        <div class="row m-0">
+          <div class="borderMessages">
+          <div class="col data" [ngClass]="{'textAreaPublic': this.user.role !== 'BRO', 'textArea': this.user.role === 'BRO'}">
+            <div *ngFor="let msg of messages">
+              <span style="font-weight: 600">[{{msg['date']}}] {{msg['username']}}</span> <br><span>{{msg['msg']}}</span>
+              <br>
             </div>
+          </div>
+        <div class="col data" style="border-top:solid black 3px" *ngIf="this.user.role==='BRO'">
+          <div class="row textInput ">
+            <textarea [(ngModel)]="msg" class="msgInput col-10 "></textarea>
+              <div class="col-2 send h-100 text-center p-0">
+                <input type="submit" class="sendButton" value="Enviar" (click)="sendMsg()">
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>

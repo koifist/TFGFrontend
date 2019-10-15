@@ -22,7 +22,7 @@ export class PublicComponent implements OnInit {
   loaded = false;
   faCaretUpp = faCaretUp;
   faCaretDown = faCaretDown;
-  faPaperPlane = faPaperPlane;
+  public user: any;
   msg = '';
   message: object;
   socket: any;
@@ -71,7 +71,7 @@ export class PublicComponent implements OnInit {
         gridLines: {color: 'transparent'}
       }],
       yAxes: [{
-        ticks: {fontColor: 'black'},
+        ticks: {fontColor: 'black', maxTicksLimit: 8},
         gridLines: {color: 'black'},
       }],
     },
@@ -124,7 +124,7 @@ export class PublicComponent implements OnInit {
           // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < this.messages.length; i++) {
               // @ts-ignore
-              this.messages[i].date = moment(this.messages[i].date, moment.ISO_8601).format('DD-MMMM hh:mm:SS');
+              this.messages[i].date = moment(this.messages[i].date, moment.ISO_8601).format('DD-MMMM HH:mm:ss');
               // @ts-ignore
               this.messages[i].username = this.messages[i].username.split('@')[0];
             }
@@ -135,48 +135,45 @@ export class PublicComponent implements OnInit {
         });
   }
   public getPrices(): void {
-    this.loaded = true;
     const time = moment();
     const day = time.isoWeekday();
     const start = moment('15:25:00', 'HH:mm:ss');
     const end = moment('22:00:00', 'HH:mm:ss');
     if (time.isBetween(start, end) && day < 6) {
+      setTimeout(() => {
       this.userService.getStockInfo()
         .pipe(first())
         .subscribe(
           res => {
-            // @ts-ignore
-            this.amazonData[0].data.push(this.prices.amazon.current);
-            // @ts-ignore
-            this.googleData[0].data.push(this.prices.google.current);
-            // @ts-ignore
-            this.appleData[0].data.push(this.prices.apple.current);
-            // @ts-ignore
-            this.microsoftData[0].data.push(this.prices.microsoft.current);
+            this.amazonData[0].data.push(res.prices.amazon.current);
+            this.googleData[0].data.push(res.prices.google.current);
+            this.appleData[0].data.push(res.prices.apple.current);
+            this.microsoftData[0].data.push(res.prices.microsoft.current);
             this.amazonData[0].data.shift();
             this.googleData[0].data.shift();
             this.appleData[0].data.shift();
             this.microsoftData[0].data.shift();
-            this.amazonLabels.push(moment().format('HH:MM:s'));
-            this.googleLabels.push(moment().format('HH:MM:s'));
-            this.appleLabels.push(moment().format('HH:MM:s'));
-            this.microsoftLabels.push(moment().format('HH:MM:s'));
+            this.amazonLabels.push(moment().format('HH:mm:ss'));
+            this.googleLabels.push(moment().format('HH:mm:ss'));
+            this.appleLabels.push(moment().format('HH:mm:ss'));
+            this.microsoftLabels.push(moment().format('HH:mm:ss'));
             this.amazonLabels.shift();
             this.googleLabels.shift();
             this.appleLabels.shift();
             this.microsoftLabels.shift();
-            setTimeout(() => {
-              this.getPrices();
-            }, 300000);
+            this.getPrices();
           },
           err => {
             this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
           });
+      }, 300000);
     } else {
       this.toastr.info('Actualmente la bolsa no esta en activo. Le mostraremos la última información recogida.');
     }
   }
   ngOnInit() {
+    moment().locale('es');
+    this.user = JSON.parse(sessionStorage.getItem('currentUser'));
     this.getMessages();
     this.getHistory();
     this.socket.on('messages', (msg: any) => {
@@ -184,7 +181,7 @@ export class PublicComponent implements OnInit {
       // @ts-ignore
       if (this.message && this.message.username && this.message.date && this.message.msg) {
         // @ts-ignore
-        this.message.date = moment(this.message.date, moment.ISO_8601).format('DD-MMMM hh:mm:SS');
+        this.message.date = moment(this.message.date, moment.ISO_8601).format('DD-MMMM HH:mm:ss');
         this.messages.unshift(this.message);
         // @ts-ignore
         this.message.username = this.message.username.split('@')[0];
@@ -221,10 +218,27 @@ export class PublicComponent implements OnInit {
             this.microsoftLabels.shift();
           });
           this.prices = res.prices;
+          this.loaded = true;
           this.getPrices();
         },
         err => {
           this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
         });
+  }
+  public sendMsg() {
+    if(this.msg.length < 10) {
+      this.toastr.warning('Introduzca un mensaje válido');
+    } else {
+      this.userService.sendMessage(this.msg)
+        .pipe(first())
+        .subscribe(
+          res => {
+            this.toastr.success('Mensaje enviado correctamente');
+            this.msg = '';
+          },
+          err => {
+            this.toastr.error('Ha ocurrido un error. Porfavor contacte con el administrador');
+          });
+    }
   }
 }
