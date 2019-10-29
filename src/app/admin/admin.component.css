@@ -1,36 +1,65 @@
-#admin{
-  text-align: center;
-  min-height: 1500px;
+.borderStyle{
+  border: black solid 3px;
+  border-radius: 2px;
 }
-.input{
-  width: 815px;
-  height: 60px;
-  margin-bottom: 40px;
+.brokerName{
+  background-color: #242c37;
+  color: #FFFFFF;
+  font-weight: 600;
 }
-.textArea{
-  color:black;
+.pointer1:hover{
+  cursor: pointer;
+  color: #51d64d!important;
 }
-.submit{
-  height: 60px;
-  margin-bottom: 40px;
-  margin-left: 18px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  box-shadow:inset 0px 10px 10px rgba(0,239,247,1),
-  -1px 1px 0px 0 rgba(0,0,0,.2),
-  -2px 2px 0px 0 rgba(0,0,0,.2),
-  -3px 3px 0px 0 rgba(0,0,0,.2),
-  -4px 4px 0px 0 rgba(0,0,0,.2);
-  outline: none;
+.pointer2:hover{
+  cursor: pointer;
+  color: #ff0b00!important;
+}
+.scrollBar{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.scrollBar::-webkit-scrollbar-track, .textAreaPublic::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px transparent;
+  background-color: transparent;
+  border-radius: 10px;
+}
+.scrollBar::-webkit-scrollbar, .textAreaPublic::-webkit-scrollbar * {
+  background:transparent;
+}
+.scrollBar::-webkit-scrollbar, .textAreaPublic::-webkit-scrollbar
+{
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+.scrollBar::-webkit-scrollbar-thumb, .textAreaPublic::-webkit-scrollbar-thumb
+{
   background-color: #000000;
-  border-color: #000000;
-  color: white;
 }
-.submit:active{
-  box-shadow:inset 0px 10px 10px rgba(0,239,247,1),
-  -1px 1px 0px 0 rgba(0,0,0,.2);
+@media (max-width: 749px) {
+  .heightAlign{
+    height: 300px;
+  }
 }
-.col-11{
-  margin-left:10px!important;
+@media (min-width: 750px) and (max-width: 1149px) {
+  .heightAlign{
+    height: 400px;
+  }
 }
+@media (min-width: 1150px) and (max-width: 1599px) {
+  .heightAlign{
+    height: 550px;
+  }
+}
+@media (min-width: 1600px) {
+  .heightAlign{
+    height: 700px;
+  }
+  .brokerName{
+    font-size: 20px;
+  }
+}
+
 

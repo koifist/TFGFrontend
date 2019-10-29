@@ -6,12 +6,16 @@ const BASE_URL = 'http://localhost:3000';
 export const environment = {
   production: false,
   backendpoints: {
+    getUser: BASE_URL + '/user',
     login: BASE_URL + '/createSession',
     register: BASE_URL + '/createUser',
     updatePass: BASE_URL + '/updatePass',
-    getMessages: BASE_URL + '/getMessages',
+    deleteUser: BASE_URL + '/deleteUser',
+    activateUser: BASE_URL + '/activateUser',
+    updateRole: BASE_URL + '/updateRole',
     sendMessage: BASE_URL + '/sendMessage',
-    upgradeBroker: BASE_URL + '/createBroker',
+    getMessages: BASE_URL + '/getMessages',
+    deleteMessage: BASE_URL + '/deleteMessage',
     getStockInfo: BASE_URL + '/stockInfo',
     getStockHistory: BASE_URL + '/stockHistory',
   },

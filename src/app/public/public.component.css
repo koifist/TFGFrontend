@@ -26,6 +26,7 @@
 .borderMessages{
   border: solid black 2px;
   border-radius: 2px;
+  width: 100%;
 }
 .msgInput{
   width: 100%;

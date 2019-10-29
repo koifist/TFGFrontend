@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PublicComponent } from './public/public.component';
 import { AdminComponent } from './admin/admin.component';
 import {ChartsModule} from 'ng2-charts';
+import {UiSwitchModule} from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,15 @@ import {ChartsModule} from 'ng2-charts';
   ],
   imports: [
     BrowserModule,
+    UiSwitchModule.forRoot({
+      size: 'small',
+      color: '#CECECE',
+      switchColor: '#343a40',
+      defaultBgColor: '#FFFFFF',
+      defaultBoColor : '#000000',
+      checkedLabel: 'BRO',
+      uncheckedLabel: 'PUB'
+    }),
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
@@ -51,6 +61,7 @@ import {ChartsModule} from 'ng2-charts';
     }),
     RouterModule,
     ChartsModule,
+    UiSwitchModule,
 
   ],
   providers: [
